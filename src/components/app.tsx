@@ -39,8 +39,8 @@ const Home = () => {
 
   return (
     <Page id="home">
+      <Header class={getBackground(0)}>All lists</Header>
       <ul>
-        <LiHeader class={getBackground(0)}>All lists</LiHeader>
         <For each={items()}>
           {(item, i) => (
             <li>
@@ -104,7 +104,7 @@ const InputListItem = () => {
           }}
         />
       </li>
-      {/* {inputFocused() && <InputListItem />} */}
+      {inputFocused() && <InputListItem />}
     </>
   );
 };
@@ -120,7 +120,9 @@ const List = () => {
   return (
     <Page id="list">
       <ul>
-        <LiHeader class={getBackground(0)}>{item}</LiHeader>
+        <Header as="li" class={getBackground(0)}>
+          {item}
+        </Header>
         <li>
           <Item class={getBackground(1)}>TODO: Other items here...</Item>
         </li>
@@ -142,7 +144,7 @@ const List = () => {
 const Page = tw(PageContainer)`bg-black text-white bg-blue-950`;
 
 // from-sky-500 to-sky-600
-const LiHeader = tw("li")`pb-6 pt-8 px-4 text-3xl`;
+const Header = tw("div")`pb-6 pt-8 px-4 text-3xl`;
 const itemStyles = tw`p-4 text-2xl`;
 const Item = tw("div")`${itemStyles}`;
 
